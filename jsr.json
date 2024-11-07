@@ -1,6 +1,6 @@
 {
   "name": "@sola_breakroom/supabase-js",
-  "version": "0.0.1",
+  "version": "0.0.0-automate",
   "exports": "./src/index.ts",
   "exclude": ["examples"]
 }
