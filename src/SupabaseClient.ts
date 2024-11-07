@@ -108,7 +108,7 @@ export default class SupabaseClient<
       this.auth = new Proxy<SupabaseAuthClient>({} as any, {
         get: (_, prop) => {
           throw new Error(
-            `@sola_breakroom/supabase-js: Supabase Client is configured with the accessToken option, accessing supabase.auth.${String(
+            `@breakroomapp/supabase-js: Supabase Client is configured with the accessToken option, accessing supabase.auth.${String(
               prop
             )} is not possible`
           )
