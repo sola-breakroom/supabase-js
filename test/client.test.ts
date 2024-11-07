@@ -15,7 +15,7 @@ test('it should create a client with third-party auth accessToken', async () => 
   })
 
   expect(() => client.auth.getUser()).toThrowError(
-    '@supabase/supabase-js: Supabase Client is configured with the accessToken option, accessing supabase.auth.getUser is not possible'
+    '@sola_breakroom/supabase-js: Supabase Client is configured with the accessToken option, accessing supabase.auth.getUser is not possible'
   )
 })
 
