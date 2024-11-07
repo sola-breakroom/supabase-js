@@ -16,7 +16,7 @@
           "dist/module/lib/version.d.ts",
           "dist/umd/supabase.js"
         ],
-        "placeholder": "0.0.1"
+        "placeholder": "0.0.0-automate"
       }
     ],
     "@semantic-release/commit-analyzer",
