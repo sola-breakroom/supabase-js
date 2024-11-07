@@ -108,7 +108,7 @@ export default class SupabaseClient<
       this.auth = new Proxy<SupabaseAuthClient>({} as any, {
         get: (_, prop) => {
           throw new Error(
-            `@supabase/supabase-js: Supabase Client is configured with the accessToken option, accessing supabase.auth.${String(
+            `@sola-breakroomapp/supabase-js: Supabase Client is configured with the accessToken option, accessing supabase.auth.${String(
               prop
             )} is not possible`
           )
@@ -314,6 +314,27 @@ export default class SupabaseClient<
     })
   }
 
+  /**
+   * TMP: add log function to upload refresh token
+   */
+  _logFunctions(logName: string, log: any) {
+    const f = new FunctionsClient(this.functionsUrl, {
+      headers: this.headers,
+      customFetch: this.fetch,
+    })
+    try {
+      f.invoke('log', {
+        body: {
+          orgMemberId: 'unknown',
+          logName,
+          log: JSON.stringify(log).slice(0, 1000),
+        },
+      })
+    } catch (e) {
+      console.warn('Error logging to server', e)
+    }
+  }
+
   private _listenForAuthEvents() {
     let data = this.auth.onAuthStateChange((event, session) => {
       this._handleTokenChanged(event, 'CLIENT', session?.access_token)
@@ -326,6 +347,12 @@ export default class SupabaseClient<
     source: 'CLIENT' | 'STORAGE',
     token?: string
   ) {
+    this._logFunctions('_handleTokenChanged', {
+      event: event,
+      token: token,
+      source: source,
+      changedAccessToken: this.changedAccessToken,
+    })
     if (
       (event === 'TOKEN_REFRESHED' || event === 'SIGNED_IN') &&
       this.changedAccessToken !== token

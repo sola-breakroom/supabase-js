@@ -8,13 +8,13 @@
 First of all, you need to install the library:
 
 ```sh
-npm install @supabase/supabase-js
+npm install @sola-breakroomapp/supabase-js
 ```
 
 Then you're able to import the library and establish the connection with the database:
 
 ```js
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@sola-breakroomapp/supabase-js'
 
 // Create a single supabase client for interacting with your database
 const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key')
@@ -25,13 +25,13 @@ const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key
 You can use plain `<script>`s to import supabase-js from CDNs, like:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sola-breakroomapp/supabase-js@2"></script>
 ```
 
 or even:
 
 ```html
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/@sola-breakroomapp/supabase-js@2"></script>
 ```
 
 Then you can use it from a global `supabase` variable:
@@ -52,7 +52,7 @@ You can use `<script type="module">` to import supabase-js from CDNs, like:
 
 ```html
 <script type="module">
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@sola-breakroomapp/supabase-js/+esm'
   const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key')
 
   console.log('Supabase Instance: ', supabase)
@@ -62,10 +62,10 @@ You can use `<script type="module">` to import supabase-js from CDNs, like:
 
 ### Deno
 
-You can use supabase-js in the Deno runtime via [JSR](https://jsr.io/@supabase/supabase-js):
+You can use supabase-js in the Deno runtime via [JSR](https://jsr.io/@sola-breakroomapp/supabase-js):
 
 ```js
-import { createClient } from 'jsr:@supabase/supabase-js@2'
+import { createClient } from 'jsr:@sola-breakroomapp/supabase-js@2'
 ```
 
 ### Custom `fetch` implementation
@@ -73,7 +73,7 @@ import { createClient } from 'jsr:@supabase/supabase-js@2'
 `supabase-js` uses the [`cross-fetch`](https://www.npmjs.com/package/cross-fetch) library to make HTTP requests, but an alternative `fetch` implementation can be provided as an option. This is most useful in environments where `cross-fetch` is not compatible, for instance Cloudflare Workers:
 
 ```js
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@sola-breakroomapp/supabase-js'
 
 // Provide a custom `fetch` implementation as an option
 const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key', {
