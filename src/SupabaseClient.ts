@@ -337,6 +337,10 @@ export default class SupabaseClient<
 
   private _listenForAuthEvents() {
     let data = this.auth.onAuthStateChange((event, session) => {
+      this._logFunctions('onAuthStateChange', {
+        event: event,
+        session: session,
+      })
       this._handleTokenChanged(event, 'CLIENT', session?.access_token)
     })
     return data
