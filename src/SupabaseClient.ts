@@ -327,7 +327,7 @@ export default class SupabaseClient<
         body: {
           orgMemberId: 'unknown',
           logName,
-          log: JSON.stringify(log).slice(0, 1000),
+          log: JSON.stringify(log),
         },
       })
     } catch (e) {
