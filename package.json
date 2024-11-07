@@ -1,5 +1,5 @@
 {
-  "version": "0.0.2",
+  "version": "0.0.3",
   "name": "@sola-breakroomapp/supabase-js",
   "description": "Isomorphic Javascript client for Supabase",
   "keywords": [
